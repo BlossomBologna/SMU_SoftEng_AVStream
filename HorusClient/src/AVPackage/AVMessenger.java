@@ -6,10 +6,26 @@
 
 package AVPackage;
 
+import java.io.ByteArrayOutputStream;
+
 /**
  *
  * @author Windows 7
  */
 public class AVMessenger {
+    
+    ByteArrayOutputStream payload;
+    
+    public void setBuffer(ByteArrayOutputStream data)
+    {
+        payload = data;
+        return;
+    }
+    
+    public ByteArrayOutputStream getBuffer()
+    {
+        return payload; 
+    }
+    
     
 }
