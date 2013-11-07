@@ -19,7 +19,6 @@ public class AVMessenger {
     public void setBuffer(ByteArrayOutputStream data)
     {
         payload = data;
-        return;
     }
     
     public ByteArrayOutputStream getBuffer()
