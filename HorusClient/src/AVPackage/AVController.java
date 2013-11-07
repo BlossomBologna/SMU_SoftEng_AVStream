@@ -13,7 +13,7 @@ import java.io.ByteArrayOutputStream;
  *
  * @author Airagale
  */
-public class AVcontroller {
+public class AVController {
     
     /**
      * AaronE
