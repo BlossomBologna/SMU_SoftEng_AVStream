@@ -3,6 +3,8 @@
  */
 package edu.smu.engr.softeng.horus.gui;
 
+import java.awt.GraphicsConfiguration;
+import java.awt.HeadlessException;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
