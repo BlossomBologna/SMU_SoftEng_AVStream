@@ -62,7 +62,7 @@ public class StreamListFrame extends JFrame {
             add(openAudioButton, c);
             
             //Add open audio button
-            openVideoButton = new JButton("Open Audio Stream");
+            openVideoButton = new JButton("Open Video Stream");
             openVideoButton.setActionCommand(Constants.ACTION_LOGIN);
             openVideoButton.addActionListener(actionListener);
             c = new GridBagConstraints();
@@ -73,8 +73,8 @@ public class StreamListFrame extends JFrame {
             add(openVideoButton, c);
             
             //Add open audio button
-            openBothButton = new JButton("Open Audio Stream");
-            openBothButton.setActionCommand(Constants.ACTION_LOGIN);
+            openBothButton = new JButton("Open Video&Audio Stream");
+            openBothButton.setActionCommand(Constants.ACTION_OPEN_VIDEO_STREAM);
             openBothButton.addActionListener(actionListener);
             c = new GridBagConstraints();
             c.anchor = GridBagConstraints.LINE_END;

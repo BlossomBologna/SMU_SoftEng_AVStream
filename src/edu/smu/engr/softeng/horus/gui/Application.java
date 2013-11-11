@@ -5,11 +5,15 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
+import uk.co.caprica.vlcj.medialist.MediaList;
+import uk.co.caprica.vlcj.player.MediaPlayerFactory;
+
 public class Application implements ActionListener {
 
       //Panels
       private LoginFrame loginFrame;
       private StreamListFrame streamListFrame;
+      private VideoFrame videoFrame;
 
       /**
        * Starts the components and runs application
@@ -40,6 +44,28 @@ public class Application implements ActionListener {
                   streamListFrame = new StreamListFrame(this);
                   streamListFrame.pack();
                   streamListFrame.setVisible(true);
+            }
+            if(action.getActionCommand().equals(Constants.ACTION_OPEN_VIDEO_STREAM)) {
+                  //Open Video Stream
+                  
+                //TODO: Add code to make this be a specific stream
+                  
+                  videoFrame = new VideoFrame(this);
+                  videoFrame.pack();
+                  videoFrame.setVisible(true);
+                  
+                  videoFrame.getMediaListPlayer().play();
+            }
+            //TODO: Delete this method, only temporary for verifying list of videos can be changed
+            if(action.getActionCommand().equals("ChangeList")) {
+                  //Change List Action
+                  MediaPlayerFactory mediaPlayerFactory = new MediaPlayerFactory();
+                  MediaList mediaList = mediaPlayerFactory.newMediaList();
+                  mediaList.addMedia("test1.mp4");
+                  mediaList.addMedia("test2.mp4");
+                  mediaList.addMedia("test3.mp4");
+                  
+                  videoFrame.getMediaListPlayer().setMediaList(mediaList);
             }
       }
 
