@@ -24,12 +24,12 @@ public class AVController {
         
     }
     
-    public ByteArrayOutputStream EncryptPayload(ByteArrayInputStream data)
+    private ByteArrayOutputStream EncryptPayload(ByteArrayInputStream data)
     {
         return null;
     }
     
-    public void packageAV(ByteArrayInputStream data)
+    private void packageAV(ByteArrayInputStream data)
     {
         
     }
