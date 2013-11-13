@@ -1,7 +1,7 @@
 package AVPackage;
 import java.io.ByteArrayOutputStream;
 
-public class AVMessenger {
+public class AVMessenger /*extends Message*/{
     
     ByteArrayOutputStream payload;
     

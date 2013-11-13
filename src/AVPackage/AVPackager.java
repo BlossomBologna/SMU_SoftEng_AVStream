@@ -3,11 +3,57 @@ package AVPackage;
 import java.io.File;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class AVPackager extends Thread
 {
+	AVMessenger msg = new AVMessenger();
+	File file;
+	ByteArrayOutputStream encryptedPayload;
+	
 	public AVPackager (File f)
 	{
+		file = f;
+	}
+	
+	@Override
+	public void run()
+	{
+		ByteArrayInputStream unencryptedPayload;
+		
+		try {
+			unencryptedPayload = convertFileToBAIS(file);
+			encryptedPayload = encryptPayload(unencryptedPayload);
+		} catch (IOException e) {}
 		
 	}
+	
+	private ByteArrayInputStream convertFileToBAIS(File file) throws IOException
+	{
+		//online resource: http://www.coderanch.com/t/275789//java/Convert-java-io-File-ByteArryInputStream
+		
+		InputStream in;
+		in = new FileInputStream(file);
+		
+	    ByteArrayOutputStream byteOut = new ByteArrayOutputStream((int) file.length());  
+	    byte[] buffer = new byte[4096]; // some large number - pick one  
+	   
+		for (int size; (size = in.read(buffer)) != -1; )  
+		  byteOut.write(buffer, 0, size);
+		
+	    ByteArrayInputStream byteIn = new ByteArrayInputStream(byteOut.toByteArray());  
+		
+	    in.close();
+	    
+		return byteIn;
+	}
+	
+	private ByteArrayOutputStream encryptPayload(ByteArrayInputStream bais)
+	{
+		return null;
+	}
+	
 }
