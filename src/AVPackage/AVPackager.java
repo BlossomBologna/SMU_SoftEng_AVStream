@@ -19,6 +19,7 @@ public class AVPackager extends Thread
 	
 	public AVPackager (File f)
 	{
+		System.out.println("AVPackager created!");
 		file = f;
 	}
 	
