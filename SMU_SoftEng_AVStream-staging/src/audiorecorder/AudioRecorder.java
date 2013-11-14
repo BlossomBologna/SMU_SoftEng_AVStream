@@ -19,95 +19,92 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author joel
+ * @author Joel George, Audio, 11/11/2013
  */
 public class AudioRecorder {
 
-    /**
-     * @param args the command line arguments
-     * @throws IOException 
-     */
-	
-    public static void main(String args[]) throws IOException {
-    	Socket socket = null;
-    	int portnumber =12;
-    	int cTosPortNumber = 1777;
-        String str;
-        Capture a=new Capture();
-        ServerSocket servSocket = new ServerSocket(cTosPortNumber);
-        System.out.println("Waiting for a connection on " + cTosPortNumber);
-
-        Socket fromClientSocket = servSocket.accept();
-        PrintWriter pw = new PrintWriter(fromClientSocket.getOutputStream(), true);
-
-        BufferedReader br = new BufferedReader(new InputStreamReader(fromClientSocket.getInputStream()));
-
-        //while ((str = br.readLine()) != null) {
-        str =br.readLine();  
-        System.out.println("The message: " + str);
-
-          if (str.equals("capture")) {
-        	System.out.println("recording\n");
-  			a.captureAudio();
+      /**
+       * @param args the command line arguments
+       * @throws IOException 
+       */
+      public static void main(String args[]) throws IOException {
+    	    Socket socket = null;
+    	    
+    	    int portnumber = 12;
+    	    
+    	    int cTosPortNumber = 1777;
+            String str;
+            Capture a = new Capture();
+            ServerSocket servSocket = new ServerSocket(cTosPortNumber);
             
-          } 
-          else {
-            str = "Server returns " + str;
-            pw.println("good");
-          }
-          pw.close();
-          br.close();
-          
-          int cTosPortNumber2 = 1778;
-          String str2;
-          ServerSocket servSocket2 = new ServerSocket(cTosPortNumber2);
-          System.out.println("Waiting for a connection on " + cTosPortNumber2);
+            System.out.println("Waiting for a connection on " + cTosPortNumber);
 
-          Socket fromClientSocket2 = servSocket2.accept();
-          PrintWriter pw2 = new PrintWriter(fromClientSocket2.getOutputStream(), true);
+            Socket fromClientSocket = servSocket.accept();
+            PrintWriter pw = new PrintWriter(fromClientSocket.getOutputStream(), true);
+            BufferedReader br = new BufferedReader(new InputStreamReader(fromClientSocket.getInputStream()));
 
-          BufferedReader br2 = new BufferedReader(new InputStreamReader(fromClientSocket2.getInputStream()));
+            //while ((str = br.readLine()) != null) {
+            str = br.readLine();  
+            System.out.println("The message: " + str);
 
-          //while ((str = br.readLine()) != null) {
-          str2 =br2.readLine();  
-          System.out.println("The message: " + str2);
-
-          if (str2.equals("stop"))
-  		{	a.running=false;
-  			
-  			a.playAudio();
-  			System.out.println("DONE");
-  			//listener.close();
-  			
-  		}
+            if (str.equals("capture")) {
+                  System.out.println("recording\n");
+  		  a.captureAudio();
+            } 
             else {
-              str2 = "Server returns " + str2;
-              pw2.println("good");
+                  str = "Server returns " + str;
+                  pw.println("good");
+            }
+            
+            pw.close();
+            br.close();
+          
+            int cTosPortNumber2 = 1778;
+            String str2;
+            ServerSocket servSocket2 = new ServerSocket(cTosPortNumber2);
+            System.out.println("Waiting for a connection on " + cTosPortNumber2);
+
+            Socket fromClientSocket2 = servSocket2.accept();
+            PrintWriter pw2 = new PrintWriter(fromClientSocket2.getOutputStream(), true);
+
+            BufferedReader br2 = new BufferedReader(new InputStreamReader(fromClientSocket2.getInputStream()));
+
+            //while ((str = br.readLine()) != null) {
+            str2 = br2.readLine();  
+            System.out.println("The message: " + str2);
+
+            if (str2.equals("stop")) {
+                  a.running=false;
+  			
+  		  a.playAudio();
+  	          System.out.println("DONE");
+  		  //listener.close();
+  	    }
+            else {
+                  str2 = "Server returns " + str2;
+                  pw2.println("good");
             }
         
 
-        //System.out.println("waiting");
-		//ServerSocket listener = null;
+            //System.out.println("waiting");
+	    //ServerSocket listener = null;
 		
-		/*try {
-			listener = new ServerSocket(portnumber);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			listener.accept();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
-        
-		
-		
-        
-		}
-        
-        
-        
-    
+	    /*try {
+	          listener = new ServerSocket(portnumber);
+	    } catch (IOException e) {
+	    
+	          // TODO Auto-generated catch block
+	    
+	          e.printStackTrace();
+            }
+	    try {
+	          listener.accept();
+	    } 
+	    catch (IOException e) {
+	    
+		  // TODO Auto-generated catch block
+			
+		  e.printStackTrace();
+	    }*/
+      }
 }
