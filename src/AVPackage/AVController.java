@@ -21,6 +21,8 @@ import com.googlecode.javacv.cpp.opencv_core.IplImage;
  */
 public class AVController {
     
+	private long secondsToRecord = 5;
+	
 	private OpenCVFrameGrabber grabber = null;
 	private Object micObject = null;
 	private int imageWidth = 620;
@@ -65,7 +67,7 @@ public class AVController {
 					
 					recorder.start();
 					//got this for statement from http://stackoverflow.com/questions/2550536/java-loop-for-a-certain-duration
-					for (long stop=System.currentTimeMillis() + 5000;stop>System.currentTimeMillis();){
+					for (long stop=System.currentTimeMillis() + secondsToRecord*(long)1000;stop>System.currentTimeMillis();){
 						grabbedImage = grabber.grab();
 						recorder.record(grabbedImage);
 					}
