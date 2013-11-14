@@ -10,16 +10,32 @@ import java.io.InputStream;
 //import edu.smu.engr.softeng.horus.CommonInstrastructure
 //import edu.smu.engr.softeng.horus.Security
 
+/**
+ * AVPackager
+ * {Description}
+ * @author Video
+ */
+
 public class AVPackager extends Thread {
 	private AVMessenger msg = new AVMessenger();
 	private File file;
 	private ByteArrayOutputStream encryptedPayload;
 	
+	/**
+	 * {Description}
+	 * @param f {Description}
+	 */
 	public AVPackager (File f) {
 		System.out.println("AVPackager created!");
 		file = f;
 	}
 	
+	/**
+	 * {Description}
+	 * @param No parameter values.
+	 * @return No return value.
+	 * @exception {Description}
+	 */
 	@Override
 	public void run() {
 		System.out.println("AVPackager running!");
@@ -35,6 +51,12 @@ public class AVPackager extends Thread {
 		
 	}
 	
+	/**
+	 * {Description}
+	 * @param file {Description}
+	 * @return {Description}
+	 * @throws IOException {Description}
+	 */
 	private ByteArrayInputStream convertFileToBais(File file) throws IOException {
 		//online resource: http://www.coderanch.com/t/275789//java/Convert-java-io-File-ByteArryInputStream
 		
@@ -56,6 +78,11 @@ public class AVPackager extends Thread {
 		return byteIn;
 	}
 	
+	/**
+	 * {Description}
+	 * @param data {Description}
+	 * @return {Description}
+	 */
 	private ByteArrayOutputStream encryptPayload(ByteArrayInputStream data) {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		
@@ -67,6 +94,11 @@ public class AVPackager extends Thread {
 		return baos;
 	}
 	
+	/**
+	 * {Description}
+	 * @param msg {Description}
+	 * @return No return value.
+	 */
 	private void packageMessage(ByteArrayOutputStream msg) {
 		this.msg.setPayload(msg);
 		

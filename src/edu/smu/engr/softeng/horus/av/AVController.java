@@ -12,8 +12,10 @@ import com.googlecode.javacv.OpenCVFrameGrabber;
 import com.googlecode.javacv.cpp.opencv_core.IplImage;
 
 /**
- *
- * @author Airagale
+ * AVController
+ * {Description}
+ * @author Video
+ * @author Audio
  */
 public class AVController {
     
@@ -28,10 +30,10 @@ public class AVController {
 	private int codec = com.googlecode.javacv.cpp.avcodec.AV_CODEC_ID_MPEG1VIDEO;
 
     /**
-     * AaronE
-     * @param recVideo
-     * @param recAudio
      * Initializes video and audio
+     * @param recVideo {Description}
+     * @param recAudio {Description}
+     * @return No return value.
      */
     public void execute(boolean recVideo, boolean recAudio) {
         if (recVideo) {
@@ -45,16 +47,19 @@ public class AVController {
         startCapture();
     }
     
-/*
- * Comment by: AaronE
- * !@param
- * Caputures video, stores in AVPackage, sends AVPackage, Restarts process.
- * 
- * Instantiates the AVPackage, then sets files to store video. 
- * Starts the recorder and records for set amount of time. 
- * Ends Recording, stores recorded data in AVPackage
- * Runs recording in the background while simultaneously packaging data
- */
+    /**
+     * Captures video, stores in AVPackage, sends AVPackage, Restarts process.
+     * 
+     * Instantiates the AVPackage, then sets files to store video. 
+     * Starts the recorder and records for set amount of time. 
+     * Ends Recording, stores recorded data in AVPackage
+     * Runs recording in the background while simultaneously packaging data
+     * 
+     * @param No parameter values.
+     * @return No return value.
+     * @exception e {Description}
+     * @exception e {Description}
+     */
     private void startCapture() {
 
     	if (grabber != null) {
@@ -99,6 +104,11 @@ public class AVController {
 		
 	}
 
+    /**
+     * {Description}
+     * @param
+     * @return
+     */
 	private void initializeMic() {
 
     	//method for audio team to initialize the microphone
@@ -106,6 +116,11 @@ public class AVController {
 		
 	}
 
+	/**
+	 * {Description}
+	 * @param No parameter values.
+	 * @return No return value.
+	 */
 	private void initializeCamera() {
     	grabber = new OpenCVFrameGrabber(0);
     	grabber.setFrameRate(frameRate);
