@@ -32,12 +32,11 @@ public class AVController {
      * @param recAudio
      * Initializes video and audio
      */
-    public void execute(boolean recVideo, boolean recAudio)
-    {
-        if(recVideo)
+    public void execute(boolean recVideo, boolean recAudio) {
+        if (recVideo)
         	initializeCamera();
         
-        if(recAudio)
+        if (recAudio)
         	initializeMic();
         
         startCapture();
@@ -55,14 +54,13 @@ public class AVController {
  */
     private void startCapture() {
 
-    	if(grabber != null)
-    	{
+    	if (grabber != null) {
     		try {
 				grabber.start();
 				
 				AVPackager avPackager;
 				
-				while(true){
+				while (true) {
 					String fileName = String.valueOf(System.currentTimeMillis()) + ".mpeg";
 					File chunk = new File(fileName);
 								

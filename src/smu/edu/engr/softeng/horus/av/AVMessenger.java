@@ -7,18 +7,15 @@ public class AVMessenger /*extends Message*/{
     
     public AVMessenger(){}
     
-    public AVMessenger(ByteArrayOutputStream data)
-    {
+    public AVMessenger(ByteArrayOutputStream data) {
     	setPayload(data);
     }
     
-    public void setPayload(ByteArrayOutputStream data)
-    {
+    public void setPayload(ByteArrayOutputStream data) {
         payload = data;
     }
     
-    public ByteArrayOutputStream getPayload()
-    {
+    public ByteArrayOutputStream getPayload() {
         return payload; 
     }
     

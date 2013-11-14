@@ -10,21 +10,18 @@ import java.io.InputStream;
 //import edu.smu.engr.softeng.horus.CommonInstrastructure
 //import edu.smu.engr.softeng.horus.Security
 
-public class AVPackager extends Thread
-{
+public class AVPackager extends Thread {
 	private AVMessenger msg = new AVMessenger();
 	private File file;
 	private ByteArrayOutputStream encryptedPayload;
 	
-	public AVPackager (File f)
-	{
+	public AVPackager (File f) {
 		System.out.println("AVPackager created!");
 		file = f;
 	}
 	
 	@Override
-	public void run()
-	{
+	public void run() {
 		System.out.println("AVPackager running!");
 		
 		ByteArrayInputStream unencryptedPayload;
@@ -38,8 +35,7 @@ public class AVPackager extends Thread
 		
 	}
 	
-	private ByteArrayInputStream convertFileToBAIS(File file) throws IOException
-	{
+	private ByteArrayInputStream convertFileToBAIS(File file) throws IOException {
 		//online resource: http://www.coderanch.com/t/275789//java/Convert-java-io-File-ByteArryInputStream
 		
 		InputStream in;
@@ -59,18 +55,16 @@ public class AVPackager extends Thread
 		return byteIn;
 	}
 	
-	private ByteArrayOutputStream encryptPayload(ByteArrayInputStream data)
-	{
+	private ByteArrayOutputStream encryptPayload(ByteArrayInputStream data) {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		while(data.available() != 0){
+		while (data.available() != 0) {
 			baos.write(data.read());
 		}
 		//return encrypt(data); //uncomment when Security becomes available
 		return baos;
 	}
 	
-	private void packageMessage(ByteArrayOutputStream data)
-	{
+	private void packageMessage(ByteArrayOutputStream data) {
 		msg.setPayload(data);
 		
 		//processMessage(msg); //uncomment when CommonInfra becomes available
