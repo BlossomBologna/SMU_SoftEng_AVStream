@@ -27,15 +27,15 @@ public class AVPackager extends Thread {
 		ByteArrayInputStream unencryptedPayload;
 		
 		try {
-			unencryptedPayload = convertFileToBAIS(file);
-			encryptedPayload = encryptPayload(unencryptedPayload);
-			packageMessage(encryptedPayload);
+			unencryptedPayload = convertFileToBais(file);
+			this.encryptedPayload = encryptPayload(unencryptedPayload);
+			packageMessage(this.encryptedPayload);
 			
 		} catch (IOException e) {}
 		
 	}
 	
-	private ByteArrayInputStream convertFileToBAIS(File file) throws IOException {
+	private ByteArrayInputStream convertFileToBais(File file) throws IOException {
 		//online resource: http://www.coderanch.com/t/275789//java/Convert-java-io-File-ByteArryInputStream
 		
 		InputStream in;
@@ -57,17 +57,19 @@ public class AVPackager extends Thread {
 	
 	private ByteArrayOutputStream encryptPayload(ByteArrayInputStream data) {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		
 		while (data.available() != 0) {
 			baos.write(data.read());
 		}
+		
 		//return encrypt(data); //uncomment when Security becomes available
 		return baos;
 	}
 	
-	private void packageMessage(ByteArrayOutputStream data) {
-		msg.setPayload(data);
+	private void packageMessage(ByteArrayOutputStream msg) {
+		this.msg.setPayload(msg);
 		
-		//processMessage(msg); //uncomment when CommonInfra becomes available
+		//processMessage(this.msg); //uncomment when CommonInfra becomes available
 	}
 	
 }

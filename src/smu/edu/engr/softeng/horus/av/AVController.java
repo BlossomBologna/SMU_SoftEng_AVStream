@@ -68,12 +68,13 @@ public class AVController {
 					recorder.setVideoCodec(codec);
 					recorder.setFormat("mpeg");
 					recorder.setFrameRate(frameRate);
-					recorder.setVideoBitrate(5*imageHeight*imageWidth);
+					recorder.setVideoBitrate(5 * imageHeight * imageWidth);
 					IplImage grabbedImage = grabber.grab();
 					
 					recorder.start();
 					//got this for statement from http://stackoverflow.com/questions/2550536/java-loop-for-a-certain-duration
-					for (long stop=System.currentTimeMillis() + secondsToRecord*(long)1000;stop>System.currentTimeMillis();){
+					
+					for (long stop=System.currentTimeMillis() + secondsToRecord * (long)1000;stop>System.currentTimeMillis();){
 						grabbedImage = grabber.grab();
 						recorder.record(grabbedImage);
 					}
