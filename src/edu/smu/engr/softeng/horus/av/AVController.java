@@ -13,7 +13,7 @@ import com.googlecode.javacv.cpp.opencv_core.IplImage;
 
 /**
  * AVController
- * {Description}
+ * Our class that controls and initializes the feed for audio/video
  * @author Video
  * @author Audio
  */
@@ -31,8 +31,8 @@ public class AVController {
 
     /**
      * Initializes video and audio
-     * @param recVideo {Description}
-     * @param recAudio {Description}
+     * @param recVideo: True to record, False to not record
+     * @param recAudio: True to record, False to not record
      * @return No return value.
      */
     public void execute(boolean recVideo, boolean recAudio) {
@@ -105,7 +105,7 @@ public class AVController {
 	}
 
     /**
-     * {Description}
+     * Determined by Audio team
      * @param
      * @return
      */
@@ -117,7 +117,7 @@ public class AVController {
 	}
 
 	/**
-	 * {Description}
+	 * The "Grabber" interacts with video camera. Sets the scale for frames. 
 	 * @param No parameter values.
 	 * @return No return value.
 	 */
