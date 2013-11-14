@@ -97,13 +97,4 @@ public class AVController {
     	grabber.setImageHeight(imageHeight);
 	}
 
-	private ByteArrayOutputStream EncryptPayload(ByteArrayInputStream data)
-    {
-        return null;
-    }
-    
-    private void packageAV(File file)
-    {
-        
-    }
 }
