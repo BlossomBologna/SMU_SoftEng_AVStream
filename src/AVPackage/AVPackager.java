@@ -13,9 +13,9 @@ import java.io.InputStream;
 
 public class AVPackager extends Thread
 {
-	AVMessenger msg = new AVMessenger();
-	File file;
-	ByteArrayOutputStream encryptedPayload;
+	private AVMessenger msg = new AVMessenger();
+	private File file;
+	private ByteArrayOutputStream encryptedPayload;
 	
 	public AVPackager (File f)
 	{
