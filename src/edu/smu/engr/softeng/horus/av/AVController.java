@@ -72,11 +72,16 @@ public class AVController {
 					String fileName = String.valueOf(System.currentTimeMillis()) + ".mpeg";
 					File chunk = new File(fileName);
 								
-					FFmpegFrameRecorder recorder = new FFmpegFrameRecorder(chunk, imageWidth, imageWidth);
+					FFmpegFrameRecorder recorder = new FFmpegFrameRecorder(chunk, imageWidth, imageWidth, 2);
 					recorder.setVideoCodec(codec);
 					recorder.setFormat("mpeg");
 					recorder.setFrameRate(frameRate);
 					recorder.setVideoBitrate(5 * imageHeight * imageWidth);
+					
+					recorder.setAudioBitrate(64000);
+					recorder.setAudioChannels(2);
+					recorder.setAudioCodec(com.googlecode.javacv.cpp.avcodec.AV_CODEC_ID_AAC);
+					
 					IplImage grabbedImage = grabber.grab();
 					
 					recorder.start();
@@ -85,6 +90,13 @@ public class AVController {
 					for (long stop=System.currentTimeMillis() + secondsToRecord * (long)1000;stop>System.currentTimeMillis();){
 						grabbedImage = grabber.grab();
 						recorder.record(grabbedImage);
+						
+						/**
+						 * Audio team, the buffer that contains the audio sample should
+						 * be inserted in the line below. Replace 'Buffer...' with your
+						 * buffer object which contains your audio
+						 */
+						//recorder.record(Buffer...);
 					}
 					
 					recorder.stop();
