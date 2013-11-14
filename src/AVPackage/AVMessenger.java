@@ -5,12 +5,19 @@ public class AVMessenger /*extends Message*/{
     
     ByteArrayOutputStream payload;
     
-    public void setBuffer(ByteArrayOutputStream data)
+    public AVMessenger(){}
+    
+    public AVMessenger(ByteArrayOutputStream data)
+    {
+    	setPayload(data);
+    }
+    
+    public void setPayload(ByteArrayOutputStream data)
     {
         payload = data;
     }
     
-    public ByteArrayOutputStream getBuffer()
+    public ByteArrayOutputStream getPayload()
     {
         return payload; 
     }

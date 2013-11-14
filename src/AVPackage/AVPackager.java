@@ -27,6 +27,8 @@ public class AVPackager extends Thread
 		try {
 			unencryptedPayload = convertFileToBAIS(file);
 			encryptedPayload = encryptPayload(unencryptedPayload);
+			packageMessage(encryptedPayload);
+			
 		} catch (IOException e) {}
 		
 	}
@@ -54,6 +56,13 @@ public class AVPackager extends Thread
 	private ByteArrayOutputStream encryptPayload(ByteArrayInputStream bais)
 	{
 		return null;
+	}
+	
+	private void packageMessage(ByteArrayOutputStream data)
+	{
+		msg.setPayload(data);
+		//AVMessenger msg = new AVMessenger(encryptedPayload);
+		
 	}
 	
 }
