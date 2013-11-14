@@ -4,7 +4,7 @@ import java.io.ByteArrayOutputStream;
 
 /**
  * AVMessenger
- * Description
+ * Storage for audio and video data. 
  * @author Video
  */
 public class AVMessenger /*extends Message*/{
@@ -12,22 +12,22 @@ public class AVMessenger /*extends Message*/{
     ByteArrayOutputStream payload;
     
     /**
-     * {Description}
+     * Constructor
      * @param No parameter values.
      */
     public AVMessenger(){}
     
     /**
-     * {Description}
-     * @param payload {Description}
+     * Constructor
+     * @param payload: Data to be stored in AVMessenger for sending
      */
     public AVMessenger(ByteArrayOutputStream payload) {
     	setPayload(payload);
     }
     
     /**
-     * {Description} 
-     * @param payload {Description}
+     * Setter method for protection of data for param payload.
+     * @param payload: Data to be stored in AVMessenger
      * @return No return value.
      */
     public void setPayload(ByteArrayOutputStream payload) {
@@ -35,8 +35,8 @@ public class AVMessenger /*extends Message*/{
     }
     
     /**
-     * {Description}
-     * @return {Description}
+     * Getter method for param payload that stores information to be sent.
+     * @return param payload
      */
     public ByteArrayOutputStream getPayload() {
         return this.payload; 
