@@ -65,8 +65,10 @@ public class AVController {
 					
 					recorder.start();
 					//got this for statement from http://stackoverflow.com/questions/2550536/java-loop-for-a-certain-duration
-					for (long stop=System.currentTimeMillis() + 5000;stop>System.currentTimeMillis();)
+					for (long stop=System.currentTimeMillis() + 5000;stop>System.currentTimeMillis();){
+						grabbedImage = grabber.grab();
 						recorder.record(grabbedImage);
+					}
 	
 					recorder.stop();
 				}
