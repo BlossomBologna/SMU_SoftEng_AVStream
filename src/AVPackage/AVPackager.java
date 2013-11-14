@@ -8,6 +8,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
+//import {Common Infrastructure}
+//import {Security}
+
 public class AVPackager extends Thread
 {
 	AVMessenger msg = new AVMessenger();
@@ -49,12 +52,14 @@ public class AVPackager extends Thread
 	    ByteArrayInputStream byteIn = new ByteArrayInputStream(byteOut.toByteArray());  
 		
 	    in.close();
+	    file.delete();
 	    
 		return byteIn;
 	}
 	
-	private ByteArrayOutputStream encryptPayload(ByteArrayInputStream bais)
+	private ByteArrayOutputStream encryptPayload(ByteArrayInputStream data)
 	{
+		//return encrypt(data);
 		return null;
 	}
 	
@@ -63,6 +68,7 @@ public class AVPackager extends Thread
 		msg.setPayload(data);
 		//AVMessenger msg = new AVMessenger(encryptedPayload);
 		
+		//processMessage(msg);
 	}
 	
 }
