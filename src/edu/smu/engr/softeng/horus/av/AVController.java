@@ -21,6 +21,7 @@ public class AVController {
 	
 	private OpenCVFrameGrabber grabber = null;
 	private Object micObject = null;
+	
 	private int imageWidth = 620;
 	private int imageHeight = 480;
 	private double frameRate = 24;
@@ -33,11 +34,13 @@ public class AVController {
      * Initializes video and audio
      */
     public void execute(boolean recVideo, boolean recAudio) {
-        if (recVideo)
+        if (recVideo) {
         	initializeCamera();
+        }
         
-        if (recAudio)
+        if (recAudio) {
         	initializeMic();
+        }
         
         startCapture();
     }

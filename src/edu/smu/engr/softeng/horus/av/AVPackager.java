@@ -44,8 +44,9 @@ public class AVPackager extends Thread {
 	    ByteArrayOutputStream byteOut = new ByteArrayOutputStream((int) file.length());  
 	    byte[] buffer = new byte[4096];  
 	   
-		for (int size; (size = in.read(buffer)) != -1; )  
-		  byteOut.write(buffer, 0, size);
+		for (int size; (size = in.read(buffer)) != -1; ) {
+		      byteOut.write(buffer, 0, size);
+		}
 		
 	    ByteArrayInputStream byteIn = new ByteArrayInputStream(byteOut.toByteArray());  
 		
