@@ -26,6 +26,8 @@ public class AVPackager extends Thread
 	@Override
 	public void run()
 	{
+		System.out.println("AVPackager running!");
+		
 		ByteArrayInputStream unencryptedPayload;
 		
 		try {
