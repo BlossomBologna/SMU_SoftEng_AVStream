@@ -1,4 +1,4 @@
-package AVPackage;
+package smu.edu.engr.softeng.horus.av;
 
 import java.io.File;
 import java.io.ByteArrayInputStream;
