@@ -104,7 +104,6 @@ public class Application implements ActionListener {
             
             //PC
             if(RuntimeUtil.isWindows()) {
-                  System.out.println(bitness);
                   if(bitness.equals("64")) {
                         NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "libraries/winjvm64");
                         Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
