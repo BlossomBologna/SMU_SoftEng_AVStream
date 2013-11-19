@@ -5,7 +5,7 @@
 
 import edu.smu.engr.softeng.horus.av.AVController;
 
-public class AVPackageeTestClass {
+public class AVPackageTestClass {
 
 	public static void main(String[] args)
 	{
