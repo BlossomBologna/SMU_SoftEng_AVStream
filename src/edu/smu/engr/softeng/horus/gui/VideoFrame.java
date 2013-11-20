@@ -47,8 +47,12 @@ public class VideoFrame extends JFrame {
             
             //Make initial list of videos
             MediaList mediaList = mediaPlayerFactory.newMediaList();
-            mediaList.addMedia("test3.mp4");
-            mediaList.addMedia("test2.mp4");
+            mediaList.addMedia("1384903123419.mpeg");
+            mediaList.addMedia("1384903128907.mpeg");
+            mediaList.addMedia("1384903133976.mpeg");
+            mediaList.addMedia("1384903139055.mpeg");
+            mediaList.addMedia("1384903144112.mpeg");
+            mediaList.addMedia("1384903149183.mpeg");
             
             //Set settings for media player
             mediaListPlayer.setMediaList(mediaList);
