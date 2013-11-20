@@ -14,10 +14,10 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
-import uk.co.caprica.vlcj.component.EmbeddedMediaListPlayerComponent;
+import uk.co.caprica.vlcj.component.EmbeddedMediaPlayerComponent;
 import uk.co.caprica.vlcj.medialist.MediaList;
+import uk.co.caprica.vlcj.player.MediaPlayer;
 import uk.co.caprica.vlcj.player.MediaPlayerFactory;
-import uk.co.caprica.vlcj.player.list.MediaListPlayer;
 import uk.co.caprica.vlcj.player.list.MediaListPlayerMode;
 
 /**
@@ -27,8 +27,8 @@ import uk.co.caprica.vlcj.player.list.MediaListPlayerMode;
 public class VideoFrame extends JFrame {
       
       //Input fields
-      private final EmbeddedMediaListPlayerComponent mediaListPlayerComponent = new EmbeddedMediaListPlayerComponent();
-      private MediaListPlayer mediaListPlayer = mediaListPlayerComponent.getMediaListPlayer();
+      private final EmbeddedMediaPlayerComponent mediaPlayerComponent = new EmbeddedMediaPlayerComponent();
+      private MediaPlayer mediaPlayer = mediaPlayerComponent.getMediaPlayer();
       
       /**
        * @param actionListener Listener that each frame calls to execute and action, typically Application
@@ -50,7 +50,7 @@ public class VideoFrame extends JFrame {
             MediaPlayerFactory mediaPlayerFactory = new MediaPlayerFactory();
             
             //Make initial list of videos
-            MediaList mediaList = mediaPlayerFactory.newMediaList();
+            /*MediaList mediaList = mediaPlayerFactory.newMediaList();
             mediaList.addMedia("1384903123419.mpeg");
             mediaList.addMedia("1384903128907.mpeg");
             mediaList.addMedia("1384903133976.mpeg");
@@ -59,11 +59,11 @@ public class VideoFrame extends JFrame {
             mediaList.addMedia("1384903149183.mpeg");
             
             //Set settings for media player
-            mediaListPlayer.setMediaList(mediaList);
-            mediaListPlayer.setMode(MediaListPlayerMode.LOOP);
+            mediaPlayer.setMediaList(mediaList);
+            mediaPlayer.setMode(MediaListPlayerMode.LOOP);*/
 
             //Add PlayerControlsPanel
-            PlayerControlsPanel controls = new PlayerControlsPanel(mediaListPlayerComponent);
+            PlayerControlsPanel controls = new PlayerControlsPanel(mediaPlayerComponent);
             c = new GridBagConstraints();
             c.anchor = GridBagConstraints.LINE_END;
             c.gridx = 2;
@@ -89,8 +89,8 @@ public class VideoFrame extends JFrame {
       /**
        * @return The MediaListPlayer handle for the media player in the frame
        */
-      public MediaListPlayer getMediaListPlayer() {
-            return this.mediaListPlayer;
+      public MediaPlayer getMediaPlayer() {
+            return this.mediaPlayer;
       }
       
       /**
@@ -105,7 +105,7 @@ public class VideoFrame extends JFrame {
             videoFrame.pack();
             videoFrame.setVisible(true);
             
-            videoFrame.getMediaListPlayer().play();
+            videoFrame.getMediaPlayer().play();
             
             //Tell it to load files, etc.
             //Call methods in video frame, avoid creating elements here

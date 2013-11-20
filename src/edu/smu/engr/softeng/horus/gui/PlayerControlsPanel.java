@@ -146,26 +146,26 @@ public class PlayerControlsPanel extends JPanel {
     String path = "icons/pause.png";
     File file = new File(path);
     BufferedImage image = null;
-    try {
+    /*try {
 	    image = ImageIO.read(file);
     } catch (IOException e) {
 	    // TODO Auto-generated catch block
 	    e.printStackTrace();
-    }
-    pauseButton.setIcon(new ImageIcon(image));
+    }*/
+    //pauseButton.setIcon(new ImageIcon(image));
     pauseButton.setToolTipText("Play/pause");
     
     playButton = new JButton();
     String path2 = "icons/play.png";
     File file2 = new File(path2);
     BufferedImage image2 = null;
-    try {
+    /*try {
 	    image2 = ImageIO.read(file2);
     } catch (IOException e) {
 	    // TODO Auto-generated catch block
 	    e.printStackTrace();
-    }
-    playButton.setIcon(new ImageIcon(image2));
+    }*/
+    //playButton.setIcon(new ImageIcon(image2));
     //playButton.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/control_play_blue.png")));
     playButton.setToolTipText("Play");
     
@@ -181,13 +181,13 @@ public class PlayerControlsPanel extends JPanel {
     String path3 = "icons/mute.png";
     File file3 = new File(path3);
     BufferedImage image3 = null;
-    try {
+    /*try {
 	    image3 = ImageIO.read(file3);
     } catch (IOException e) {
 	    // TODO Auto-generated catch block
 	    e.printStackTrace();
-    }
-    toggleMuteButton.setIcon(new ImageIcon(image3));
+    }*/
+    //toggleMuteButton.setIcon(new ImageIcon(image3));
     //toggleMuteButton.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/sound_mute.png")));
     toggleMuteButton.setToolTipText("Toggle Mute");
     

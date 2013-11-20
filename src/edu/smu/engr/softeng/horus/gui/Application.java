@@ -74,7 +74,15 @@ public class Application implements ActionListener {
                   videoFrame.pack();
                   videoFrame.setVisible(true);
                   
-                  videoFrame.getMediaListPlayer().play();
+                  videoFrame.getMediaPlayer().playMedia("1384903123419.mpeg");
+                  
+                  boolean playing = videoFrame.getMediaPlayer().isPlaying();
+                  while(playing) {
+                        
+                  }
+
+                  //videoFrame.getMediaPlayer().playMedia("1384903128907.mpeg");
+                  
             }
             else if(action.getActionCommand().equals(Constants.ACTION_OPEN_COMBINED_STREAM)) {
                   //Open Combined Stream
@@ -85,7 +93,7 @@ public class Application implements ActionListener {
                   videoFrame.pack();
                   videoFrame.setVisible(true);
                   
-                  videoFrame.getMediaListPlayer().play();
+                  videoFrame.getMediaPlayer().play();
             }
             //TODO: Delete this method, only temporary for verifying list of videos can be changed
             else if(action.getActionCommand().equals("ChangeList")) {
@@ -96,7 +104,6 @@ public class Application implements ActionListener {
                   mediaList.addMedia("test2.mp4");
                   mediaList.addMedia("test3.mp4");
                   
-                  videoFrame.getMediaListPlayer().setMediaList(mediaList);
             }
       }
 
