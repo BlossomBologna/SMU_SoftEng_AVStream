@@ -9,9 +9,11 @@ import com.sun.jna.Native;
 import com.sun.jna.NativeLibrary;
 
 import uk.co.caprica.vlcj.binding.LibVlc;
+import uk.co.caprica.vlcj.discovery.NativeDiscovery;
 import uk.co.caprica.vlcj.medialist.MediaList;
 import uk.co.caprica.vlcj.player.MediaPlayerFactory;
 import uk.co.caprica.vlcj.runtime.RuntimeUtil;
+import uk.co.caprica.vlcj.version.LibVlcVersion;
 
 public class Application implements ActionListener {
 
@@ -100,8 +102,16 @@ public class Application implements ActionListener {
             //Load libraries
             
             //Get version
-            String bitness = System.getProperty("sun.arch.data.model");
+            //String bitness = System.getProperty("sun.arch.data.model");
             
+            try {
+                  setupLibVLC();
+            } catch (LibraryNotFoundException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+            }
+            
+            /*
             //PC
             if(RuntimeUtil.isWindows()) {
                   if(bitness.equals("64")) {
@@ -137,8 +147,20 @@ public class Application implements ActionListener {
                         NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "libraries/nixjvm32");
                         Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
                   }
-            }
+            }*/
             
             new Application();
       }
+      
+      private static void setupLibVLC() throws LibraryNotFoundException {
+
+            new NativeDiscovery().discover();
+
+            // discovery()'s method return value is WRONG on Linux
+            try {
+                LibVlcVersion.getVersion();
+            } catch (Exception e) {
+                throw new LibraryNotFoundException();
+            }
+     }
 }
