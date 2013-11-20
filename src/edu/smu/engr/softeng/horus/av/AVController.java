@@ -76,7 +76,7 @@ public class AVController {
                               String fileName = String.valueOf(System.currentTimeMillis()) + ".mpeg";
                               File chunk = new File(fileName);
                                                 
-                              FFmpegFrameRecorder recorder = new FFmpegFrameRecorder(chunk, imageWidth, imageWidth, 2);
+                              FFmpegFrameRecorder recorder = new FFmpegFrameRecorder(chunk, imageWidth, imageHeight, 2);
                               recorder.setVideoCodec(codec);
                               recorder.setFormat("mpeg");
                               recorder.setFrameRate(frameRate);
@@ -105,8 +105,8 @@ public class AVController {
                               
                               recorder.stop();
                               
-                              avPackager = new AVPackager(chunk);
-                              avPackager.start();
+                              //avPackager = new AVPackager(chunk);
+                              //avPackager.start();
                         }
                         
                         //grabber.stop();
