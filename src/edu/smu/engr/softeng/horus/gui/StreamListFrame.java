@@ -14,6 +14,10 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+/**
+ * 
+ *
+ */
 public class StreamListFrame extends JFrame {
 
       //Components
@@ -31,6 +35,9 @@ public class StreamListFrame extends JFrame {
       
       /**
        * @param actionListener Listener that each frame calls to execute and action, typically Application
+       */
+      /**
+       * @param actionListener
        */
       public StreamListFrame(ActionListener actionListener) {
             super("Stream List");
@@ -104,8 +111,15 @@ public class StreamListFrame extends JFrame {
             add(openBothButton, c);
       }
       
+      /**
+       * 
+       *
+       */
       private class ValueChangedListener implements ListSelectionListener {
 
+            /* (non-Javadoc)
+             * @see javax.swing.event.ListSelectionListener#valueChanged(javax.swing.event.ListSelectionEvent)
+             */
             @Override
             public void valueChanged(ListSelectionEvent event) {
                   //TODO: When combined with streams, get what streams are available

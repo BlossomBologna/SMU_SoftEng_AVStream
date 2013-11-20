@@ -20,6 +20,10 @@ import uk.co.caprica.vlcj.player.MediaPlayerFactory;
 import uk.co.caprica.vlcj.player.list.MediaListPlayer;
 import uk.co.caprica.vlcj.player.list.MediaListPlayerMode;
 
+/**
+ * 
+ *
+ */
 public class VideoFrame extends JFrame {
       
       //Input fields

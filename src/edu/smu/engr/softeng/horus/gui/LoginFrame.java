@@ -11,6 +11,10 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+/**
+ * 
+ *
+ */
 public class LoginFrame extends JFrame {
 
       //Input fields
