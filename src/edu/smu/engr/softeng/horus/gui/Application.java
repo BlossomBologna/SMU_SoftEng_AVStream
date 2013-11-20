@@ -18,6 +18,7 @@ import com.sun.jna.NativeLibrary;
 import uk.co.caprica.vlcj.binding.LibVlc;
 import uk.co.caprica.vlcj.discovery.NativeDiscovery;
 import uk.co.caprica.vlcj.medialist.MediaList;
+import uk.co.caprica.vlcj.player.MediaPlayer;
 import uk.co.caprica.vlcj.player.MediaPlayerFactory;
 import uk.co.caprica.vlcj.runtime.RuntimeUtil;
 import uk.co.caprica.vlcj.version.LibVlcVersion;
@@ -74,14 +75,31 @@ public class Application implements ActionListener {
                   videoFrame.pack();
                   videoFrame.setVisible(true);
                   
-                  videoFrame.getMediaPlayer().playMedia("1384903123419.mpeg");
+                  MediaPlayer mediaPlayer = videoFrame.getMediaPlayer();
+                  mediaPlayer.playMedia("1384903123419.mpeg");
+                  mediaPlayer.release();
                   
-                  boolean playing = videoFrame.getMediaPlayer().isPlaying();
+                  boolean playing = mediaPlayer.isPlaying();
+                  System.out.println(playing);
+                  while(!playing) {
+                        playing = mediaPlayer.isPlaying();
+                  }
                   while(playing) {
-                        
+                        playing = mediaPlayer.isPlaying();
                   }
 
-                  //videoFrame.getMediaPlayer().playMedia("1384903128907.mpeg");
+                  mediaPlayer.playMedia("1384903128907.mpeg");
+                  mediaPlayer.release();
+                  
+                  while(!playing) {
+                        playing = mediaPlayer.isPlaying();
+                  }
+                  while(playing) {
+                        playing = mediaPlayer.isPlaying();
+                  }
+
+                  mediaPlayer.playMedia("1384903133976.mpeg");
+                  mediaPlayer.release();
                   
             }
             else if(action.getActionCommand().equals(Constants.ACTION_OPEN_COMBINED_STREAM)) {

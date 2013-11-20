@@ -236,7 +236,7 @@ public class PlayerControlsPanel extends JPanel {
     JPanel positionPanel = new JPanel();
     positionPanel.setLayout(new GridLayout(1, 1));
 //    positionPanel.add(positionProgressBar);
-    positionPanel.add(positionSlider);
+//    positionPanel.add(positionSlider);
     
     JPanel topPanel = new JPanel();
     topPanel.setLayout(new BorderLayout(8, 0));
@@ -245,7 +245,7 @@ public class PlayerControlsPanel extends JPanel {
     topPanel.add(positionPanel, BorderLayout.CENTER);
     topPanel.add(chapterLabel, BorderLayout.EAST);
     
-    add(topPanel, BorderLayout.NORTH);
+ //   add(topPanel, BorderLayout.NORTH);
     
     JPanel bottomPanel = new JPanel();
     
@@ -254,8 +254,8 @@ public class PlayerControlsPanel extends JPanel {
     //bottomPanel.add(previousChapterButton);
     //bottomPanel.add(rewindButton);
     //bottomPanel.add(stopButton);
-    bottomPanel.add(pauseButton);
-    bottomPanel.add(playButton);
+ //   bottomPanel.add(pauseButton);
+ //   bottomPanel.add(playButton);
     //bottomPanel.add(fastForwardButton);
     //bottomPanel.add(nextChapterButton);
     

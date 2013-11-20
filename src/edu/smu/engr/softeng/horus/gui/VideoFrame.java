@@ -46,6 +46,16 @@ public class VideoFrame extends JFrame {
             //Generic constraints variable
             GridBagConstraints c = new GridBagConstraints();
             
+            //Add PlayerControlsPanel
+            PlayerControlsPanel controls = new PlayerControlsPanel(mediaPlayerComponent);
+            c = new GridBagConstraints();
+            c.anchor = GridBagConstraints.LINE_END;
+            c.gridx = 2;
+            c.gridy = 3;
+            c.insets = new Insets(5, 10, 5, 10);
+            add(controls, c);
+            setContentPane(controls);
+            
             //Create MediaPlayerFactory 
             MediaPlayerFactory mediaPlayerFactory = new MediaPlayerFactory();
             
@@ -61,16 +71,6 @@ public class VideoFrame extends JFrame {
             //Set settings for media player
             mediaPlayer.setMediaList(mediaList);
             mediaPlayer.setMode(MediaListPlayerMode.LOOP);*/
-
-            //Add PlayerControlsPanel
-            PlayerControlsPanel controls = new PlayerControlsPanel(mediaPlayerComponent);
-            c = new GridBagConstraints();
-            c.anchor = GridBagConstraints.LINE_END;
-            c.gridx = 2;
-            c.gridy = 3;
-            c.insets = new Insets(5, 10, 5, 10);
-		add(controls, c);
-		setContentPane(controls);
 		
             //Add change list button
 //            JButton cList = new JButton("Change");
