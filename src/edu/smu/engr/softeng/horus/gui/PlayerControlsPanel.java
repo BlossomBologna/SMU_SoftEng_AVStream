@@ -26,10 +26,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -42,9 +46,10 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.filechooser.FileFilter;
+import javax.imageio.ImageIO;
 
 import uk.co.caprica.vlcj.binding.LibVlcConst;
-import uk.co.caprica.vlcj.component.EmbeddedMediaListPlayerComponent;
+import uk.co.caprica.vlcj.component.EmbeddedMediaPlayerComponent;
 import uk.co.caprica.vlcj.filter.swing.SwingFileFilterFactory;
 import uk.co.caprica.vlcj.player.MediaPlayer;
 import uk.co.caprica.vlcj.player.MediaPlayerEventAdapter;
@@ -60,12 +65,13 @@ public class PlayerControlsPanel extends JPanel {
 
   private final EmbeddedMediaPlayer mediaPlayer;
   
-  private final EmbeddedMediaListPlayerComponent myMediaPlayer;
+  private final EmbeddedMediaPlayerComponent myMediaPlayer;
   
   private JLabel timeLabel;
 //  private JProgressBar positionProgressBar;
   private JSlider positionSlider;
   private JLabel chapterLabel;
+  
   
   private JButton previousChapterButton;
   private JButton rewindButton;
@@ -91,7 +97,7 @@ public class PlayerControlsPanel extends JPanel {
   
   private boolean mousePressedPlaying = false;
 
-  public PlayerControlsPanel(EmbeddedMediaListPlayerComponent myMediaPlayer) {
+  public PlayerControlsPanel(EmbeddedMediaPlayerComponent myMediaPlayer) {
     this.mediaPlayer = myMediaPlayer.getMediaPlayer();
     
     this.myMediaPlayer = myMediaPlayer;
@@ -133,14 +139,33 @@ public class PlayerControlsPanel extends JPanel {
     rewindButton.setToolTipText("Skip back");
     
     stopButton = new JButton();
-    //topButton.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/control_stop_blue.png")));
+    //stopButton.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/control_stop_blue.png")));
     stopButton.setToolTipText("Stop");
     
     pauseButton = new JButton();
-    //pauseButton.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/control_pause_blue.png")));
+    String path = "icons/pause.png";
+    File file = new File(path);
+    BufferedImage image = null;
+    try {
+	    image = ImageIO.read(file);
+    } catch (IOException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+    }
+    pauseButton.setIcon(new ImageIcon(image));
     pauseButton.setToolTipText("Play/pause");
     
     playButton = new JButton();
+    String path2 = "icons/play.png";
+    File file2 = new File(path2);
+    BufferedImage image2 = null;
+    try {
+	    image2 = ImageIO.read(file2);
+    } catch (IOException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+    }
+    playButton.setIcon(new ImageIcon(image2));
     //playButton.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/control_play_blue.png")));
     playButton.setToolTipText("Play");
     
@@ -153,6 +178,16 @@ public class PlayerControlsPanel extends JPanel {
     nextChapterButton.setToolTipText("Go to next chapter");
     
     toggleMuteButton = new JButton();
+    String path3 = "icons/mute.png";
+    File file3 = new File(path3);
+    BufferedImage image3 = null;
+    try {
+	    image3 = ImageIO.read(file3);
+    } catch (IOException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+    }
+    toggleMuteButton.setIcon(new ImageIcon(image3));
     //toggleMuteButton.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/sound_mute.png")));
     toggleMuteButton.setToolTipText("Toggle Mute");
     
@@ -218,7 +253,7 @@ public class PlayerControlsPanel extends JPanel {
     
     //bottomPanel.add(previousChapterButton);
     //bottomPanel.add(rewindButton);
-    bottomPanel.add(stopButton);
+    //bottomPanel.add(stopButton);
     bottomPanel.add(pauseButton);
     bottomPanel.add(playButton);
     //bottomPanel.add(fastForwardButton);
@@ -232,7 +267,7 @@ public class PlayerControlsPanel extends JPanel {
     //bottomPanel.add(ejectButton);
     //bottomPanel.add(connectButton);
 
-    bottomPanel.add(fullScreenButton);
+    //bottomPanel.add(fullScreenButton);
     
     //bottomPanel.add(subTitlesButton);
     
