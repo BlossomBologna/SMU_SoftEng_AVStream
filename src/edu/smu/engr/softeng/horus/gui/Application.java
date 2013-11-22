@@ -23,6 +23,12 @@ import uk.co.caprica.vlcj.player.MediaPlayerFactory;
 import uk.co.caprica.vlcj.runtime.RuntimeUtil;
 import uk.co.caprica.vlcj.version.LibVlcVersion;
 
+/**
+ * Main running platform for the GUI.  Handles almost all communication
+ * within the Swing windows via the action listener.
+ * 
+ * Create a new one of these to run all of the GUI.
+ */
 public class Application implements ActionListener {
 
       //Panels
