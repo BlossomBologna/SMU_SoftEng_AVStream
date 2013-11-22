@@ -21,8 +21,8 @@ import uk.co.caprica.vlcj.player.MediaPlayerFactory;
 import uk.co.caprica.vlcj.player.list.MediaListPlayerMode;
 
 /**
- * 
- *
+ *  VideoFrame constructor, creates the media player and control components for the standard 
+ *  audio and video window
  */
 public class VideoFrame extends JFrame {
       
@@ -55,35 +55,6 @@ public class VideoFrame extends JFrame {
             c.insets = new Insets(5, 10, 5, 10);
             add(controls, c);
             setContentPane(controls);
-            
-            //Create MediaPlayerFactory 
-            MediaPlayerFactory mediaPlayerFactory = new MediaPlayerFactory();
-            
-            //Make initial list of videos
-            /*MediaList mediaList = mediaPlayerFactory.newMediaList();
-            mediaList.addMedia("1384903123419.mpeg");
-            mediaList.addMedia("1384903128907.mpeg");
-            mediaList.addMedia("1384903133976.mpeg");
-            mediaList.addMedia("1384903139055.mpeg");
-            mediaList.addMedia("1384903144112.mpeg");
-            mediaList.addMedia("1384903149183.mpeg");
-            
-            //Set settings for media player
-            mediaPlayer.setMediaList(mediaList);
-            mediaPlayer.setMode(MediaListPlayerMode.LOOP);*/
-		
-            //Add change list button
-//            JButton cList = new JButton("Change");
-//            getRootPane().setDefaultButton(cList); //Make default for enter capabilities
-//            cList.setActionCommand("ChangeList");
-//            cList.addActionListener(actionListener);
-//            c = new GridBagConstraints();
-//            c.anchor = GridBagConstraints.LINE_END;
-//            c.gridx = 1;
-//            c.gridy = 3;
-//            c.insets = new Insets(5, 10, 5, 10);
-//            add(cList, BorderLayout.SOUTH);
-            
       }
 
       /**
