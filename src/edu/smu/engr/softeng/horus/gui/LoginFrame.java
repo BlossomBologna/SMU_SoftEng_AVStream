@@ -12,8 +12,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 /**
- * This is the login frame class.  Responsible for getting the user's information.
- * The info is sent to Application and handled appropriately.
+ * 
+ *
  */
 public class LoginFrame extends JFrame {
 

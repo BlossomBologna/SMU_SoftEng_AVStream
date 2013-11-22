@@ -12,14 +12,16 @@ import java.util.Scanner;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
-import uk.co.caprica.vlcj.binding.LibVlc;
-import uk.co.caprica.vlcj.discovery.NativeDiscovery;
-import uk.co.caprica.vlcj.player.MediaPlayer;
-import uk.co.caprica.vlcj.runtime.RuntimeUtil;
-import uk.co.caprica.vlcj.version.LibVlcVersion;
-
 import com.sun.jna.Native;
 import com.sun.jna.NativeLibrary;
+
+import uk.co.caprica.vlcj.binding.LibVlc;
+import uk.co.caprica.vlcj.discovery.NativeDiscovery;
+import uk.co.caprica.vlcj.medialist.MediaList;
+import uk.co.caprica.vlcj.player.MediaPlayer;
+import uk.co.caprica.vlcj.player.MediaPlayerFactory;
+import uk.co.caprica.vlcj.runtime.RuntimeUtil;
+import uk.co.caprica.vlcj.version.LibVlcVersion;
 
 /**
  * Main running platform for the GUI.  Handles almost all communication
