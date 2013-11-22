@@ -18,6 +18,11 @@ package edu.smu.engr.softeng.horus.gui;
  * Copyright 2009, 2010, 2011 Caprica Software Limited.
  */
 
+/*
+ * This class WILL be REVISED, comments have not been added for some functions due to their impending
+ * deletion, includes a lot of unnecessary components and attributes
+ */
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -55,6 +60,12 @@ import uk.co.caprica.vlcj.player.MediaPlayer;
 import uk.co.caprica.vlcj.player.MediaPlayerEventAdapter;
 import uk.co.caprica.vlcj.player.embedded.EmbeddedMediaPlayer;
 
+/**
+ * @author Robert
+ * 
+ * This class creates the components for the controls that are added to the VideoFrame class
+ * 
+ */
 public class PlayerControlsPanel extends JPanel {
 
   private static final long serialVersionUID = 1L;
