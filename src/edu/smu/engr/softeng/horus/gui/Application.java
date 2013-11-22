@@ -37,7 +37,7 @@ public class Application implements ActionListener {
       private VideoFrame videoFrame;
 
       /**
-       * Starts the components and runs application
+       * Starts the components and runs application.  Opens the login frame initially.
        */
       public Application() {
             //Create login frame, pass this as action listener
@@ -46,7 +46,11 @@ public class Application implements ActionListener {
             loginFrame.setVisible(true);
       }
 
-      /* (non-Javadoc)
+      /**
+       * Handles action events for all of the windows in the GUI.  Keys are found in
+       * Constants.java.
+       * 
+       * (non-Javadoc)
        * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
        */
       @Override
@@ -95,16 +99,6 @@ public class Application implements ActionListener {
                   
                   videoFrame.getMediaPlayer().play();
             }
-            //TODO: Delete this method, only temporary for verifying list of videos can be changed
-            else if(action.getActionCommand().equals("ChangeList")) {
-                  //Change List Action
-                  MediaPlayerFactory mediaPlayerFactory = new MediaPlayerFactory();
-                  MediaList mediaList = mediaPlayerFactory.newMediaList();
-                  mediaList.addMedia("test1.mp4");
-                  mediaList.addMedia("test2.mp4");
-                  mediaList.addMedia("test3.mp4");
-                  
-            }
       }
 
       /**
@@ -114,56 +108,6 @@ public class Application implements ActionListener {
        */
       public static void main(String[] args) {
             //Load libraries
-            
-            /*
-            //Get version
-            //String bitness = System.getProperty("sun.arch.data.model");
-            
-            try {
-                  setupLibVLC();
-            } catch (LibraryNotFoundException e) {
-                  // TODO Auto-generated catch block
-                  e.printStackTrace();
-            }
-            
-            /*
-            //PC
-            if(RuntimeUtil.isWindows()) {
-                  if(bitness.equals("64")) {
-                        NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "libraries/winjvm64");
-                        Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
-                  }
-                  else if(bitness.equals("32")) {
-                        NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "libraries/winjvm32");
-                        Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
-                  }
-                  else {
-                        Constants.showPopup(null, "OS Bitness Unknown", "Unknown operating system bitness: "+bitness, JOptionPane.ERROR_MESSAGE);
-                        return;
-                  }
-            }
-            else if(RuntimeUtil.isMac()) {
-                  if (System.getProperty("os.arch").equals("ppc")) {
-                        NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "libraries/macjvm64");
-                        Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
-                  }
-                  else if (System.getProperty("os.arch").equals("i386")) {
-                        NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "libraries/macjvm32");
-                        Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
-                  }
-            }
-            else if(RuntimeUtil.isNix()) {
-                  if (System.getProperty("os.arch").equals("sparc") ||
-                              System.getProperty("os.arch").equals("amd64")) {
-                        NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "libraries/nixjvm64");
-                        Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
-                  }
-                  else if (System.getProperty("os.arch").equals("i386")) {
-                        NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "libraries/nixjvm32");
-                        Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
-                  }
-            }
-            */
             
             //First try to load from defaults
             boolean loaded = setupLibVLC();

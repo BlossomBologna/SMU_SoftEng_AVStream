@@ -28,6 +28,8 @@ public class LoginFrame extends JFrame {
       public static final String OKAY_BUTTON_NAME = "OKAY_BUTTON";
 
       /**
+       * Creates all of the components inside the frame.  Sets up any listeners needed.
+       * 
        * @param actionListener Listener that each frame calls to execute and action, typically Application
        */
       public LoginFrame(ActionListener actionListener) {

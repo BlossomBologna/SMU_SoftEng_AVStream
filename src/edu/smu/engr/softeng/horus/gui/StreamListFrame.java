@@ -15,8 +15,9 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 /**
- * 
- *
+ * This frame holds the list of streams currently available.  It
+ * allows the user to choose from the streams and open an audio,
+ * video, or combined stream.
  */
 public class StreamListFrame extends JFrame {
 
@@ -34,10 +35,9 @@ public class StreamListFrame extends JFrame {
       public static final String LIST_NAME = "STREAM_LIST";
       
       /**
+       * Creates all of the components inside the frame.  Sets up any listeners needed.
+       * 
        * @param actionListener Listener that each frame calls to execute and action, typically Application
-       */
-      /**
-       * @param actionListener
        */
       public StreamListFrame(ActionListener actionListener) {
             super("Stream List");
@@ -112,8 +112,9 @@ public class StreamListFrame extends JFrame {
       }
       
       /**
-       * 
-       *
+       * This listener will be used to change the "clickability" of the three different
+       * open stream buttons.  EG, if the currently selected stream doesn't allow for
+       * video to be opened, then it will disable the video and combined buttons.
        */
       private class ValueChangedListener implements ListSelectionListener {
 
