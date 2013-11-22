@@ -267,13 +267,15 @@ public class Application implements ActionListener {
       private static boolean setupLibVLC() {
 
             new NativeDiscovery().discover();
-
+            
             // discovery()'s method return value is WRONG on Linux
             try {
                 LibVlcVersion.getVersion();
             } catch (Exception e) {
                 return false;
             }
+            
+            //Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
             
             return true;
      }
