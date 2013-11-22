@@ -77,7 +77,6 @@ public class Application implements ActionListener {
                   
                   MediaPlayer mediaPlayer = videoFrame.getMediaPlayer();
                   mediaPlayer.playMedia("1384903133976.mpeg");
-                  
             }
             else if(action.getActionCommand().equals(Constants.ACTION_OPEN_COMBINED_STREAM)) {
                   //Open Combined Stream

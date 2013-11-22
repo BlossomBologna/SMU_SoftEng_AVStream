@@ -24,7 +24,6 @@
 	<classpathentry kind="lib" path="libraries/javacv-cppjars/opencv-2.4.6.1-linux-x86.jar"/>
 	<classpathentry kind="lib" path="libraries/javacv-cppjars/opencv-2.4.6.1-macosx-x86_64.jar"/>
 	<classpathentry kind="lib" path="libraries/vlcj-2.4.1.jar"/>
-	<classpathentry kind="lib" path="src/platform-3.5.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Daniel/Documents/GitHub/SMU_SoftEng_AVStream/jna-3.5.2.jar"/>
+	<classpathentry kind="lib" path="libraries/jna-3.5.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
