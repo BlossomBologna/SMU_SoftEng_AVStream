@@ -1,8 +1,12 @@
 package edu.smu.engr.softeng.horus.cominfra.CommonInfrastructure;
 
 import java.util.concurrent.ArrayBlockingQueue;
-import Reporting.ReportInterface;
-import Messages.*;
+
+import edu.smu.engr.softeng.horus.cominfra.Messages.ConfirmationMessage;
+import edu.smu.engr.softeng.horus.cominfra.Messages.Message;
+import edu.smu.engr.softeng.horus.cominfra.Messages.VideoMessage;
+import edu.smu.engr.softeng.horus.cominfra.Reporting.*;
+import edu.smu.engr.softeng.horus.cominfra.Messages.*;
 
 /**
  *MessageHandler
@@ -103,7 +107,7 @@ class MessageHandler implements Runnable {
 	
 		switch(m.typeID) {
 			case 0:
-				ReportInterface.logInfo(2, "New client assigned id : " + m.clientID);
+				edu.smu.engr.softeng.horus.cominfra.Reporting.ReportInterface.logInfo(2, "New client assigned id : " + m.clientID);
             break;
 			case 2:
 				System.out.println("Client " + m.clientID + " sent video data at "+m.dateTime);
@@ -115,10 +119,10 @@ class MessageHandler implements Runnable {
 			case 4:
 				cm.getListener(m.clientID).sendMessage(new ConfirmationMessage(m.clientID,4));
 				cm.stopThread(m.clientID);
-				ReportInterface.logInfo(2, "Client logout: client "+m.clientID);
+				edu.smu.engr.softeng.horus.cominfra.Reporting.ReportInterface.logInfo(2, "Client logout: client "+m.clientID);
                 break;
 			default:
-				ReportInterface.logError("Unknown message ID type received. Type: " + m.typeID);
+				edu.smu.engr.softeng.horus.cominfra.Reporting.ReportInterface.logError("Unknown message ID type received. Type: " + m.typeID);
 				return false;
 		}	
 		

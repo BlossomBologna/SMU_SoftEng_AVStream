@@ -4,8 +4,10 @@ import java.io.*;
 import java.net.*;
 import java.security.*;
 import java.util.ArrayList;
-import Reporting.*;
-import Messages.*;
+
+import edu.smu.engr.softeng.horus.cominfra.Reporting.ReportInterface;
+import edu.smu.engr.softeng.horus.cominfra.Reporting.*;
+import edu.smu.engr.softeng.horus.cominfra.Messages.*;
 
 /**SOME CODE TAKEN FROM THIS SOURCE
  * Title:        Sample Server
