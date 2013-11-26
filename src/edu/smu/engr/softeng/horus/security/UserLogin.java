@@ -1,4 +1,4 @@
-package edu.smu.engr.softengr.horus.security;
+package edu.smu.engr.softeng.horus.security;
 
 /** 
  * UserLogin 

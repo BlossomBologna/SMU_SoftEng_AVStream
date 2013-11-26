@@ -4,7 +4,7 @@
  */
 
 
-package security;
+package edu.smu.engr.softeng.horus.security;
 /*
  *   Group:             Security
  *   Date of Creation:  10/30/2013 7:56AM

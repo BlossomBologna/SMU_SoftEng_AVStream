@@ -1,4 +1,4 @@
-package edu.smu.engr.softengr.horus.security;
+package edu.smu.engr.softeng.horus.security;
 
 /**
 * John Wadleigh, Security, 11/8/2013 10:30pm
