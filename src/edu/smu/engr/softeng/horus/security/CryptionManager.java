@@ -63,7 +63,7 @@ public class CryptionManager {
 				input.available());
 		//Create encryption cipher
 		Cipher cipher = Cipher.getInstance("AES");
-		cipher.init(Cipher.ENCRYPT_MODE, this.keyMan.getSecret(), getSpec());
+		cipher.init(Cipher.ENCRYPT_MODE, keyMan.getSecret(), keyMan.getSpec());
 
 		//Attempt to encrypt the input stream
 		try (CipherOutputStream cipherOut = new CipherOutputStream(output,

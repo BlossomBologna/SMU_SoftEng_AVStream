@@ -62,16 +62,16 @@ class Listener implements Runnable {
 			Message idAssignment = (Message) objIn.readObject();
 			clientID = ((RegistrationMessage) idAssignment).receivedID;
 			
-			ReportingInterface.logInfo("Was given ID = "+clientID);
+			ReportInterface.logInfo(2,"Was given ID = "+clientID);
 		}
-		catch(Exception e) {ReportingInterface.logError("Problem during registration");}
+		catch(Exception e) {ReportInterface.logError("Problem during registration");}
 	}
 
     /**
      *Closes the listener
      */
 	public void close(){
-		ReportInterface.logInfo("Closing listener");
+		ReportInterface.logInfo(2,"Closing listener");
 		open = false;
 	}
 	
@@ -108,7 +108,7 @@ class Listener implements Runnable {
 					//try to read a message, then pass it along
 					try{
 						m = (Message) objIn.readObject();
-						ReportInterface.logInfo("Message received: client = "+ m.clientID + " type = "+m.typeID);
+						ReportInterface.logInfo(2,"Message received: client = "+ m.clientID + " type = "+m.typeID);
 						ourMessageHandler.addMessage(m);
 					}
 					catch (ClassNotFoundException e) {ReportInterface.logError("Class error: "+e);}
@@ -120,7 +120,7 @@ class Listener implements Runnable {
 			}
 		}
 		
-		ReportInterface.logInfo("Client #: "+clientID+" is shutting down");
+		ReportInterface.logInfo(1,"Client #: "+clientID+" is shutting down");
         server.close();
       } catch (IOException ioe) {
         ReportInterface.logError("IOException on socket listen: " + ioe);
