@@ -1,8 +1,8 @@
 package edu.smu.engr.softeng.horus.cominfra.CommonInfrastructure;
 
 import java.util.concurrent.ArrayBlockingQueue;
-import Reporting.ReportInterface;
-import Messages.*;
+import edu.smu.engr.softeng.horus.cominfra.Reporting.ReportInterface;
+import edu.smu.engr.softeng.horus.cominfra.Messages.*;
 
 /**
  *MessageHandler
