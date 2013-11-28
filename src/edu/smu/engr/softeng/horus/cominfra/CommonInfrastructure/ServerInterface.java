@@ -1,8 +1,6 @@
 package edu.smu.engr.softeng.horus.cominfra.CommonInfrastructure;
 
 import java.lang.Thread;
-
-import edu.smu.engr.softeng.horus.cominfra.Messages.Message;
 import edu.smu.engr.softeng.horus.cominfra.Reporting.ReportInterface;
 import edu.smu.engr.softeng.horus.cominfra.Messages.*;
 

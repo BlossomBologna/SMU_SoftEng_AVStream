@@ -2,9 +2,9 @@ package edu.smu.engr.softeng.horus.cominfra.CommonInfrastructure;
 
 import java.io.*;
 import java.net.*;
+import java.security.*;
 import java.util.concurrent.locks.ReentrantLock;
-
-import edu.smu.engr.softeng.horus.cominfra.Reporting.*;
+import edu.smu.engr.softeng.horus.cominfra.Reporting.ReportInterface;
 import edu.smu.engr.softeng.horus.cominfra.Messages.*;
 
 /**
@@ -62,7 +62,7 @@ class Listener implements Runnable {
 			Message idAssignment = (Message) objIn.readObject();
 			clientID = ((RegistrationMessage) idAssignment).receivedID;
 			
-			ReportInterface.logInfo(5, "Was given ID = "+clientID);
+			ReportInterface.logInfo(2,"Was given ID = "+clientID);
 		}
 		catch(Exception e) {ReportInterface.logError("Problem during registration");}
 	}
@@ -71,7 +71,7 @@ class Listener implements Runnable {
      *Closes the listener
      */
 	public void close(){
-		ReportInterface.logInfo(1, "Closing listener");
+		ReportInterface.logInfo(2,"Closing listener");
 		open = false;
 	}
 	
@@ -108,7 +108,7 @@ class Listener implements Runnable {
 					//try to read a message, then pass it along
 					try{
 						m = (Message) objIn.readObject();
-						ReportInterface.logInfo(1, "Message received: client = "+ m.clientID + " type = "+m.typeID);
+						ReportInterface.logInfo(2,"Message received: client = "+ m.clientID + " type = "+m.typeID);
 						ourMessageHandler.addMessage(m);
 					}
 					catch (ClassNotFoundException e) {ReportInterface.logError("Class error: "+e);}
@@ -120,7 +120,7 @@ class Listener implements Runnable {
 			}
 		}
 		
-		ReportInterface.logInfo(1, "Client #: "+clientID+" is shutting down");
+		ReportInterface.logInfo(1,"Client #: "+clientID+" is shutting down");
         server.close();
       } catch (IOException ioe) {
         ReportInterface.logError("IOException on socket listen: " + ioe);
