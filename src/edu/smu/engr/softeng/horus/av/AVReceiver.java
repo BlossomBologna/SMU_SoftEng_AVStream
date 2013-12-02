@@ -72,11 +72,11 @@ public class AVReceiver {
 	    }
 	  
 	    /**
-	     * Passes file to AVManager to be processed (will be fille in once
+	     * Passes file to AVManager to be processed (will be filled in once
 	     * AVManager is coded.
 	     * @param file: the File to be processed
 	     */
 	    private static void processFile(File file) {
-		  
+	    	AVManager.receiveAVFile(file);
 	    }
 }
